@@ -8,7 +8,7 @@ int main(void) {
 
 	std::queue<std::string> result;
 
-	auto perth = [&result](const std::string& str, char dlim = ' ') -> std::queue<std::string> {
+	auto parser = [&result](const std::string& str, char dlim = ' ') -> std::queue<std::string> {
 		std::stringstream stream(str);
 		std::string tmp;
 		while (std::getline(stream, tmp, dlim)) {
@@ -26,15 +26,13 @@ int main(void) {
 	}
 	std::cout << test << std::endl;
 
-	// perth test
-	perth(test);
+	// parser test
+	parser(test);
 	while ( !result.empty() ) {
 		std::cout << result.front() << std::endl;
 		result.pop();
 	}
 
-
-
-	std::cout << "perth test" << std::endl;
+	std::cout << "parser test" << std::endl;
 	return 0;
 }
